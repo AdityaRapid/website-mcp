@@ -1,0 +1,18 @@
+[project]
+name = "github-mcp"
+version = "0.1.0"
+description = "GitHub MCP Server - A Model Context Protocol server for GitHub repository management"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "PyGithub>=2.1.1",
+    "python-dotenv>=1.0.0",
+    "mcp[cli]>=1.5.0",
+]
+
+[project.scripts]
+github-mcp = "github_mcp:main"
+
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
