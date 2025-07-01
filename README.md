@@ -24,7 +24,6 @@ A Model Context Protocol (MCP) server for GitHub repository management using Fas
 
 ### Alias Functions (Backward Compatibility)
 - `get_project_name` - Alias for set_project_name
-- `make_repo` - Alias for create_repository
 - `check_file` - Alias for read_file_content
 - `push_code` - Alias for commit_and_push
 

@@ -167,31 +167,6 @@ def create_repository() -> str:
     except Exception as e:
         return f"Failed to create repository: {str(e)}"
 
-@mcp.tool
-def make_repo() -> str:
-    """Alias for create_repository - Create a new GitHub repository with the stored project name."""
-    if not context.get('project_name'):
-        return "Error: No project name set. Use set_project_name first."
-
-    if not GITHUB_TOKEN:
-        return "Error: GitHub token not found. Please set GITHUB_TOKEN in .env file."
-
-    try:
-        g = Github(GITHUB_TOKEN)
-        user = g.get_user()
-
-        # Create repository
-        repo = user.create_repo(
-            name=context['project_name'],
-            description=f"Repository for {context['project_name']}",
-            private=False,
-            auto_init=True
-        )
-
-        return f"Repository '{context['project_name']}' created successfully at {repo.html_url}"
-
-    except Exception as e:
-        return f"Failed to create repository: {e}"
 
 @mcp.tool
 def clone_repository() -> str:
@@ -286,6 +261,8 @@ def merge_template_repository() -> str:
 
         except Exception as e:
             return f"Failed to merge repo2 contents: {str(e)}"
+        
+
 @mcp.tool
 def create_file(file_path: str, content: str) -> str:
     """Create a file with specified content in the project directory."""
@@ -305,7 +282,7 @@ def create_file(file_path: str, content: str) -> str:
         # Write content to file
         full_path.write_text(content, encoding='utf-8')
 
-        return f"File {file_path} created successfully"
+        return f"File '{file_path}' created successfully at {full_path}"
 
     except Exception as e:
         return f"Failed to create file: {str(e)}"

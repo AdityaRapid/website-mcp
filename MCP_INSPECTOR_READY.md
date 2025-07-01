@@ -72,9 +72,8 @@ github-mcp/
 
 #### **Alias Functions (4)**
 1. `get_project_name` - Alias for set_project_name
-2. `make_repo` - Alias for create_repository
-3. `check_file` - Alias for read_file_content
-4. `push_code` - Alias for commit_and_push
+2. `check_file` - Alias for read_file_content
+3. `push_code` - Alias for commit_and_push
 
 ### ✅ **Verified Features**
 - ✅ MCP Protocol compliance (FastMCP 2.9.2)
